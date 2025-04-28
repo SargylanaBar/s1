@@ -1,9 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 from flask import Flask
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index_page():
-    return render_template("index.html")
+    try:
+        a = int(request.form["a"])
+        b = int(request.form["b"])
+        summa = a + b
+    except:
+        a, b = 0, 0
+        summa = "Не удалось вычислить сумму"
+    return render_template("index.html", answer=summa, a=a, b=b)

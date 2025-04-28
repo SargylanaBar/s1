@@ -7,11 +7,14 @@
 </head>
 <body>
     <h1>Добро пожаловать!</h1>
-    <form>
-        <label>Введите арифметическое выражение (например 2+3):</label>
-        <input type="text" name="expression">
-        <input type="submit" value="Вычислить">
+    <form method="POST">
+        <p>
+            <input type="text" name="a" value="{{a}}">
+            +
+            <input type="text" name="b" value="{{b}}">
+            <input type="submit" value="Вычислить">
+        </p>
     </form>
-    <p>Результат: {{ result }}</p>
+    <p>Ответ: {{answer}}</p>
 </body>
 </html>
